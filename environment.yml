@@ -1,10 +1,9 @@
 channels:
-  - https://conda.anaconda.org/conda-forge
+  - conda-forge
 dependencies:
   - astropy
   - astroquery
   - astroplan
-  - gcsfs
   - ipython-autotime
   - matplotlib-base
   - numpy
@@ -17,5 +16,4 @@ dependencies:
   - scikit-learn
   - scipy
   - seaborn
-  - pip:
-      - "git+https://github.com/panoptes/panoptes-utils@develop#egg=panoptes-utils"
+  
