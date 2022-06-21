@@ -3,49 +3,35 @@
 		"layout-restorer:data": {
 			"main": {
 				"dock": {
-					"type": "split-area",
-					"orientation": "horizontal",
-					"sizes": [0.5, 0.5],
-					"children": [{
-						"type": "tab-area",
-						"currentIndex": 0,
-						"widgets": ["notebook:Stack Observation.ipynb"]
-					}, {
-						"type": "tab-area",
-						"currentIndex": 0,
-						"widgets": ["help-doc:https://jupyterlab.readthedocs.io/en/stable/"]
-					}]
+					"type": "tab-area",
+					"currentIndex": 0,
+					"widgets": ["markdownviewer-widget:README.md"]
 				},
-				"mode": "multiple-document",
-				"current": "notebook:Stack Observation.ipynb"
+				"current": "markdownviewer-widget:README.md"
+			},
+			"down": {
+				"size": 0,
+				"widgets": []
 			},
 			"left": {
 				"collapsed": false,
 				"current": "filebrowser",
-				"widgets": ["filebrowser", "running-sessions", "command-palette", "tab-manager"]
+				"widgets": ["filebrowser", "running-sessions", "@jupyterlab/toc:plugin", "extensionmanager.main-view"]
 			},
 			"right": {
 				"collapsed": true,
-				"widgets": []
-			}
+				"widgets": ["jp-property-inspector", "debugger-sidebar"]
+			},
+			"relativeSizes": [0.13545601726929304, 0.864543982730707, 0]
 		},
-		"file-browser-filebrowser:cwd": {
-			"path": "."
-		},
-		"notebook:Stack Observation.ipynb": {
+		"markdownviewer-widget:README.md": {
 			"data": {
-				"path": "Stack Observation.ipynb",
-				"factory": "Notebook"
-			}
-		},
-		"help-doc:https://jupyterlab.readthedocs.io/en/stable/": {
-			"data": {
-				"url": "https://jupyterlab.readthedocs.io/en/stable/",
-				"text": "JupyterLab Reference"
+				"path": "README.md",
+				"factory": "Markdown Preview"
 			}
 		}
 	},
 	"metadata": {
-		"id": "/lab"
+		"id": "panoptes-workspace"
 	}
 }
