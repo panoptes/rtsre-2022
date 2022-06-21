@@ -1,2 +1,8 @@
 astrometry.net
-astrometry-tycho2-data
+astrometry-data-tycho2
+dcraw
+exiftool
+libcfitsio-bin
+libcfitsio-dev
+libpng-dev
+libjpeg-dev
