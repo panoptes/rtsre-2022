@@ -13,7 +13,6 @@ dependencies:
   - photutils
   - pip
   - pyarrow
-  - tables
   - tabulate
   - scikit-learn
   - scipy
