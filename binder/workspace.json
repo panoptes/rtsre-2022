@@ -30,7 +30,7 @@
 			}
 		},
 		"file-browser-filebrowser:cwd": {
-			"path": "demo"
+			"path": "."
 		},
 		"notebook:Stack Observation.ipynb": {
 			"data": {
