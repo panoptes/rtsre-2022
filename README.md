@@ -1,4 +1,4 @@
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/panoptes/panoptes-rtsre-2022)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/panoptes/rtsre-2022)
 
 # PANOPTES Workshop - RTSRE-2022
 
