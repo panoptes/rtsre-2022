@@ -5,6 +5,7 @@ dependencies:
   - astroquery
   - astroplan
   - ipython-autotime
+  - loguru
   - matplotlib-base
   - numpy
   - pandas
@@ -13,6 +14,7 @@ dependencies:
   - pip
   - pyarrow
   - tabulate
+  - tqdm
   - scikit-learn
   - scipy
   - seaborn
