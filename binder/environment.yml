@@ -8,8 +8,10 @@ dependencies:
   - matplotlib-base
   - numpy
   - pandas
+  - panel
   - papermill
   - photutils
+  - pyviz_comms
   - tabulate
   - tqdm
   - scikit-learn
