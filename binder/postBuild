@@ -1,6 +1,7 @@
 set -ex
 
-pip install panoptes-utils
+pip install panoptes-utils[config]
+pip install panoptes-pocs
 
 jupyter lab clean
 
