@@ -1,0 +1,2 @@
+astrometry.net
+astrometry-tycho2-data
