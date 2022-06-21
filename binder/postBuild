@@ -1,3 +1,5 @@
+pip install panoptes-utils
+
 jupyter lab clean
 
 # Setup a workspace
