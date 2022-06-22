@@ -4,12 +4,14 @@ dependencies:
   - astropy
   - astroquery
   - astroplan
+  - bokeh
   - loguru
   - matplotlib-base
   - numpy
   - pandas
   - panel
   - papermill
+  - pendulum
   - photutils
   - pyviz_comms
   - tabulate
