@@ -1,9 +1,8 @@
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/panoptes/rtsre-2022/main?urlpath=lab/tree/README.md)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/panoptes/rtsre-2022/main?urlpath=lab/tree/notebooks/Welcome.ipynb)
 
 # Welcome to the PANOPTES Workshop - RTSRE-2022
 
 **Welcome to the [PANOPTES workshop](https://rtsre.space/rtsre-workshops-2022/) for [RTSRE 2022](https://rtsre.space/)!**
-
 
 This repository contains a few notebooks that demonstrate how to work with PANOPTES observations.
 
@@ -23,6 +22,6 @@ The following notebooks are available:
 
 This assumes you are running the notebooks in a [mybinder.org](https://mybinder.org) environment, but most of the features should be available regardless of where they are run.
 
-Click the icon to get started [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/panoptes/rtsre-2022/main)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/panoptes/rtsre-2022/main?urlpath=lab/tree/notebooks/Welcome.ipynb)
 
 ![PANOPTES Logo](https://avatars.githubusercontent.com/u/5598632?s=200&v=4)
