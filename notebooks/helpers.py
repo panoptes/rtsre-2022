@@ -210,10 +210,15 @@ class ObservationInfo():
         self.raw_images = self.get_image_list()
         self.processed_images = self.get_image_list(raw=False)
 
+
+    def get_image_cutout(self, idx=0, coords=None, box_size=None, *args, **kwargs):
+        """Gets a Cutout2D object for the given coords and box_size."""
+        ccd0 = self.get_image_data(*args, **kwargs)            
+        return Cutout2D(ccd0, coords, box_size)
+    
         
-    def get_image_data(self, idx=0, coords=None, box_size=None, use_raw=True):
+    def get_image_data(self, idx=0, use_raw=True):
         """Downloads the image data for the given index."""
-        
         if use_raw:
             image_list = self.raw_images
         else:
@@ -226,11 +231,9 @@ class ObservationInfo():
         wcs0 = fits_utils.getwcs(wcs_img)
         ccd0 = CCDData(data0, wcs=wcs0, unit='adu', meta=header0)
             
-        if coords is not None and box_size is not None:
-            ccd0 = Cutout2D(ccd0, coords, box_size)
-
         return ccd0
 
+    
     def get_metadata(self):
         """Download the image metadata associated with the observation."""
         images_df = pd.read_csv(f'{IMG_METADATA_URL}?sequence_id={self.sequence_id}')
