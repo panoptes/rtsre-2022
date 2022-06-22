@@ -1,7 +1,7 @@
 set -ex
 
 pip install "git+https://github.com/panoptes/panoptes-utils@develop#egg=panoptes-utils[config]"
-pip install "git+https://github.com/panoptes/pocs@develop#egg=panoptes-pocs"
+pip install panoptes-pocs
 
 jupyter lab clean
 
