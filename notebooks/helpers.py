@@ -275,6 +275,7 @@ def search_observations(
         ra=None,
         dec=None,
         radius=10,  # degrees
+        field_name=None,
         status='CREATED',
         min_num_images=1,
         source_url=OBSERVATIONS_URL,
@@ -335,10 +336,13 @@ def search_observations(
     logger.debug(f'Setting up search params')
 
     if coords is None:
-        try:
-            coords = SkyCoord(ra=ra, dec=dec, unit='degree')
-        except ValueError:
-            raise
+        if field_name is not None:
+            coords = SkyCoord.from_name(field_name)
+        else:
+            try:
+                coords = SkyCoord(ra=ra, dec=dec, unit='degree')
+            except ValueError:
+                raise
 
             # Setup defaults for search.
     if start_date is None:
@@ -392,6 +396,10 @@ def search_observations(
         obs_df.query(f'unit_id in {listify(unit_ids)}', inplace=True)
     logger.debug(f'Found {len(obs_df)} observations after unit filter')
 
+    if field_name is not None:
+        obs_df.query(f'field_name == "{field_name}"', inplace=True)
+    logger.debug(f'Found {len(obs_df)} observations after field_name filter')    
+    
     if status is not None:
         obs_df.query(f'status in {listify(status)}', inplace=True)
     logger.debug(f'Found {len(obs_df)} observations after status filter')
