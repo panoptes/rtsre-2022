@@ -255,7 +255,7 @@ class ObservationInfo():
         return f'Obs: seq_id={self.sequence_id} num_images={len(self.raw_images)} total_exptime'
 
     def __repr__(self):
-        return f'Obs: seq_id={self.sequence_id} num_images={len(self.raw_images)} total_exptime'        
+        return str(self)
                 
 
 def search_observations(
