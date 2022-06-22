@@ -442,7 +442,7 @@ def search_observations(
     obs_df.time = pd.to_datetime(obs_df.time)
 
     # Fix bad field name.
-    obs_df.loc[obs_df.query('field_name >= "00:00:42+00:00"').index, 'field_name'] = 'M42'
+    obs_df.loc[obs_df.field_name.str.endswith('00:00:42+00:00'), 'field_name'] = 'M42'
 
     logger.success(f'Returning {len(obs_df)} observations')
     return obs_df
