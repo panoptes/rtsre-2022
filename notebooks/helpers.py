@@ -392,10 +392,12 @@ def search_observations(
     obs_df = obs_df.reindex(sorted(obs_df.columns), axis=1)
     obs_df.sort_values(by=['time'], inplace=True)
 
+    # Make sure we show an average exptime.
     obs_df.exptime = obs_df.total_exptime / obs_df.num_images
 
+    # Fix bad names and drop useless columns.
     obs_df = obs_df.rename(columns=dict(camera_camera_id='camera_id'))
-    obs_df = obs_df.drop(columns=['received_time', 'urls'])
+    obs_df = obs_df.drop(columns=['received_time', 'urls', 'status'])
 
     obs_df.time = pd.to_datetime(obs_df.time)
 
