@@ -1,9 +1,0 @@
-set -ex
-
-pip install "git+https://github.com/panoptes/panoptes-utils@develop#egg=panoptes-utils[config]"
-pip install panoptes-pocs
-
-jupyter lab clean
-
-# Setup a workspace
-jupyter lab workspaces import binder/panoptes-workspace.jupyterlab-workspace
