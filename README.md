@@ -23,6 +23,6 @@ The following notebooks are available:
 
 This assumes you are running the notebooks in a [mybinder.org](https://mybinder.org) environment, but most of the features should be available regardless of where they are run.
 
-Click the icon to get started --> [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/panoptes/rtsre-2022/main)
+Click the icon to get started :point_right: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/panoptes/rtsre-2022/main)
 
 ![PANOPTES Logo](https://avatars.githubusercontent.com/u/5598632?s=200&v=4)
