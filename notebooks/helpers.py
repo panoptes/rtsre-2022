@@ -261,7 +261,7 @@ class ObservationInfo():
         return f'Obs: seq_id={self.sequence_id} num_images={len(self.raw_images)}'
 
     def __repr__(self):
-        return self.meta
+        return str(self)
                 
 
 def search_observations(
