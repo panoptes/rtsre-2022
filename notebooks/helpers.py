@@ -203,7 +203,7 @@ class ObservationInfo():
         self.image_metadata = self.get_metadata()
         self.raw_images = self.get_image_list()
         self.processed_images = self.get_image_list(raw=False)
-        
+
         
     def get_image_data(self, idx=0, coords=None, box_size=None, use_raw=True):
         """Downloads the image data for the given index."""
@@ -250,6 +250,9 @@ class ObservationInfo():
         image_list = [IMG_BASE_URL + bucket + '/' + str(s).replace("_", "/") + file_ext for s in self.image_metadata.uid.values]
 
         return image_list
+
+    def __str__(self):
+        return f'Obs: seq_id={self.sequence_id} num_images={len(self.raw_images)} total_exptime'
                 
 
 def search_observations(
@@ -386,25 +389,12 @@ def search_observations(
     obs_df = obs_df.reindex(sorted(obs_df.columns), axis=1)
     obs_df.sort_values(by=['time'], inplace=True)
 
-    # TODO(wtgee) any data cleaning or preparation for observations here.
+    obs_df.exptime = obs_df.total_exptime / obs_df.num_images
 
-    columns = [
-        'sequence_id',
-        'unit_id',
-        'camera_id',
-        'ra',
-        'dec',
-        'exptime',
-        'field_name',
-        'iso',
-        'num_images',
-        'software_version',
-        'status',
-        'time',
-        'total_minutes_exptime',
-    ]
+    obs_df = obs_df.rename(columns=dict(camera_camera_id='camera_id'))
+    obs_df = obs_df.drop(columns=['received_time', 'urls'])
+
+    obs_df.time = pd.to_datetime(obs_df.time)
 
     logger.success(f'Returning {len(obs_df)} observations')
-    return obs_df #.reindex(columns=columns)
-
-
+    return obs_df
