@@ -211,10 +211,10 @@ class ObservationInfo():
         self.processed_images = self.get_image_list(raw=False)
 
 
-    def get_image_cutout(self, idx=0, coords=None, box_size=None, *args, **kwargs):
+    def get_image_cutout(self, data=None, coords=None, box_size=None, *args, **kwargs):
         """Gets a Cutout2D object for the given coords and box_size."""
-        ccd0 = self.get_image_data(*args, **kwargs)            
-        return Cutout2D(ccd0, coords, box_size)
+        ccd0 = data or self.get_image_data(*args, **kwargs)            
+        return Cutout2D(ccd0, coords, box_size, copy=True)
     
         
     def get_image_data(self, idx=0, use_raw=True):
@@ -230,7 +230,7 @@ class ObservationInfo():
         data0, header0 = fits_utils.getdata(data_img, header=True)
         wcs0 = fits_utils.getwcs(wcs_img)
         ccd0 = CCDData(data0, wcs=wcs0, unit='adu', meta=header0)
-            
+        
         return ccd0
 
     
