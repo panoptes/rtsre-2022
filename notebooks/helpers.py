@@ -197,9 +197,15 @@ class ObservationPathInfo:
 
 
 class ObservationInfo():
-    def __init__(self, sequence_id):
+    def __init__(self, sequence_id=None, meta=None):
         """Initialize the observation info with a sequence_id"""
-        self.sequence_id = sequence_id
+        if meta is not None:
+            self.sequence_id = meta.sequence_id
+            self.meta = meta
+        else:
+            self.sequence_id = sequence_id
+            self.meta = dict()
+
         self.image_metadata = self.get_metadata()
         self.raw_images = self.get_image_list()
         self.processed_images = self.get_image_list(raw=False)
@@ -216,9 +222,9 @@ class ObservationInfo():
         data_img = image_list[idx]
         wcs_img = self.processed_images[idx]
         
-        data0 = fits_utils.getdata(data_img)
+        data0, header0 = fits_utils.getdata(data_img, header=True)
         wcs0 = fits_utils.getwcs(wcs_img)
-        ccd0 = CCDData(data0, wcs=wcs0, unit='adu')
+        ccd0 = CCDData(data0, wcs=wcs0, unit='adu', meta=header0)
             
         if coords is not None and box_size is not None:
             ccd0 = Cutout2D(ccd0, coords, box_size)
@@ -252,10 +258,10 @@ class ObservationInfo():
         return image_list
 
     def __str__(self):
-        return f'Obs: seq_id={self.sequence_id} num_images={len(self.raw_images)} total_exptime={total_exptime}'
+        return f'Obs: seq_id={self.sequence_id} num_images={len(self.raw_images)}'
 
     def __repr__(self):
-        return str(self)
+        return self.meta
                 
 
 def search_observations(
