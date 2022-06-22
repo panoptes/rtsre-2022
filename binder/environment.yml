@@ -5,6 +5,8 @@ dependencies:
   - astroquery
   - astroplan
   - bokeh
+  - hvplot
+  - itables
   - loguru
   - matplotlib-base
   - numpy
