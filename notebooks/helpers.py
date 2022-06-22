@@ -259,7 +259,30 @@ class ObservationInfo():
         image_list = [IMG_BASE_URL + bucket + '/' + str(s).replace("_", "/") + file_ext for s in self.image_metadata.uid.values]
 
         return image_list
-
+    
+    
+    def download_images(self, image_list=None, output_dir=None, show_progress=True):
+        """Download the images to the output directory (named after the sequence_id) by default."""
+        output_dir = Path(output_dir or self.sequence_id)
+        output_dir.mkdir(parents=True, exist_ok=True)
+        
+        image_list = image_list or self.raw_images
+        
+        if show_progress:
+            img_iter = tqdm(image_list)
+        else:
+            img_iter = image_list
+        
+        img_paths = list()
+        for img in img_iter:
+            fn = Path(download_file(img))
+            new_fn = output_dir / Path(img).name
+            fn.rename(new_fn)
+            img_paths.append(str(new_fn))
+            
+        return img_paths
+            
+    
     def __str__(self):
         return f'Obs: seq_id={self.sequence_id} num_images={len(self.raw_images)}'
 
