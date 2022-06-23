@@ -12,13 +12,14 @@ dependencies:
   - numpy
   - pandas
   - panel
-  - papermill
   - pendulum
   - photutils
+  - pip
   - pyviz_comms
-  - tabulate
+  - pydantic
   - tqdm
-  - scikit-learn
   - scipy
   - seaborn
-  
+  - pip:
+    - -e "git+https://github.com/panoptes/panoptes-utils@develop#egg=panoptes-utils[config]"
+    - panoptes-data
